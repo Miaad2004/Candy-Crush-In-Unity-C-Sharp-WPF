@@ -62,12 +62,12 @@
     <Compile Include="Assets\Scripts\Tile.cs" />
     <Compile Include="Assets\Scripts\Row.cs" />
     <Compile Include="Assets\Scripts\ScoreCounter.cs" />
+    <Compile Include="Assets\Scripts\UnityExitStatus.cs" />
     <Compile Include="Assets\Scripts\ItemDatabase.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\LoginSystemConnectionHandeler.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\GameTimer.cs" />
-    <Compile Include="Assets\Scripts\LoginSystemConnectionHandeler.cs" />
-    <Compile Include="Assets\Scripts\UnityExitStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

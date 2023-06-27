@@ -60,7 +60,8 @@ namespace CandyCrush.Core.Services.Game
 
             if (match.PlayerMatches.Any(pm => pm.Score == null))
             {
-                var playersNotPlayed = match.PlayerMatches.Select(pm => pm.Player.Username);
+                var playersNotPlayed = match.PlayerMatches.Where(pm => pm.Score == null)
+                                                          .Select(pm => pm.Player.Username);
                 return $"The following players have not played yet: {string.Join(", ", playersNotPlayed)}";
             }
 
@@ -101,9 +102,16 @@ namespace CandyCrush.Core.Services.Game
 
         public async Task<float> ReceiveScoreFromUnity(string matchResultOutputPath)
         {
-            string matchResultJson = await File.ReadAllTextAsync(matchResultOutputPath);
-            var matchResult = Newtonsoft.Json.JsonConvert.DeserializeObject<MatchResult>(matchResultJson);
-            return matchResult?.Score ?? throw new Exception("Unity Match Result not found.");
+            try
+            {
+                string matchResultJson = await File.ReadAllTextAsync(matchResultOutputPath);
+                var matchResult = Newtonsoft.Json.JsonConvert.DeserializeObject<MatchResult>(matchResultJson);
+                return matchResult?.Score ?? throw new Exception("Unity Match Result not found.");
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
         }
 
         public async Task<UnityExitInfo> LaunchUnityAsync(Guid? matchId=null)
@@ -162,7 +170,7 @@ namespace CandyCrush.Core.Services.Game
                 .SingleOrDefaultAsync(m => m.Id == matchId)
                 ?? throw new ArgumentException("Invalid match ID.");
 
-            var hasPlayedBefore = match.PlayerMatches.Any(pm => pm.PlayerId == CurrentPlayer.Id && pm.HasFinished);
+            var hasPlayedBefore = match.PlayerMatches.Any(pm => pm.PlayerId == CurrentPlayer.Id && pm.Score != null);
             if (hasPlayedBefore)
             {
                 throw new ArgumentException("You have played before.");
@@ -171,8 +179,12 @@ namespace CandyCrush.Core.Services.Game
             var unityExitInfo = await LaunchUnityAsync(matchId);
             if (unityExitInfo.ExitStatus == UnityExitStatus.Success)
             {
-                var player = match.PlayerMatches.Where(pm => pm.PlayerId == CurrentPlayer.Id).Single();
-                player.Score = unityExitInfo.FinalUserScore;
+                var playerMatch = match.PlayerMatches.SingleOrDefault(pm => pm.PlayerId == CurrentPlayer.Id);
+                if (playerMatch != null)
+                {
+                    playerMatch.Score = unityExitInfo.FinalUserScore;
+                    dbContext.Entry(playerMatch).State = EntityState.Modified;
+                }
             }
 
             await dbContext.SaveChangesAsync();
