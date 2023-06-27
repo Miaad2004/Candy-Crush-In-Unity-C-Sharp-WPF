@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CandyCrush.Core.Data.CandyDbContext" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAwAAAAAAAAAAAAgAEAAgAAAAAAEAAAAEAAA=</HashCode>
+      <FileName>Data\CandyDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Exceptions.UsernameAlreadyExistsException" Collapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\UsernameAlreadyExistsException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.Entity" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.Friendship" Collapsed="true">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Friendship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.Match" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAIAEAAA=</HashCode>
+      <FileName>Models\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.MatchResult" Collapsed="true">
+    <Position X="11.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MatchResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.Player" Collapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABCAAAAAAgAQAAAAAQAAAAAAAAAAAAAAAQIgAAAEAAA=</HashCode>
+      <FileName>Models\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.PlayerMatch" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAgACAAAAAAgAAAAAAAAAAAAAAAAAAEAIAQAAAAA=</HashCode>
+      <FileName>Models\PlayerMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.Session" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAmAAAAAAAIAAAEEAAAAAAAEAAAAIAQAAACAQAAAAA=</HashCode>
+      <FileName>Models\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Models.SinglePlayerMatch" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\SinglePlayerMatch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Services.ServiceFactory" Collapsed="true">
+    <Position X="21.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Services\ServiceFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Logger" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAACAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\StaticLoggerService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Authentication.AuthenticationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABAAQAAAAAAAAAAAAAAAIAAAAAAAIABAAAAAAAAAA=</HashCode>
+      <FileName>Services\Authentication\AuthenticationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Authentication.PasswordService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAgAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Authentication\PasswordService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Authentication.SessionManager" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Services\Authentication\SessionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Communication.FriendService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAQQAAAAAAAAEAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Services\Communication\FriendService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Communication.PlayerService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Communication\PlayerService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Game.GameService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAACACQACAAAIAACAAAAAAAAAgAAABAA=</HashCode>
+      <FileName>Services\Game\GameService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CandyCrush.Core.Services.Game.UnityExitInfo" Collapsed="true">
+    <Position X="21.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Game\UnityExitInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CandyCrush.Core.Services.Authentication.IAuthenticationService" Collapsed="true">
+    <Position X="16" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Authentication\IAuthenticationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CandyCrush.Core.Services.Authentication.IPasswordService" Collapsed="true">
+    <Position X="21.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAgAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Authentication\IPasswordService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CandyCrush.Core.Services.Communication.IFriendService" Collapsed="true">
+    <Position X="17.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAQAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Communication\IFriendService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CandyCrush.Core.Services.Communication.IPlayerService" Collapsed="true">
+    <Position X="16" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\Communication\IPlayerService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CandyCrush.Core.Services.Game.IGameService" Collapsed="true">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAACAACAAAIAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Services\Game\IGameService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="CandyCrush.Core.Services.LogLevel" Collapsed="true">
+    <Position X="17.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Services\StaticLoggerService.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CandyCrush.Core.Services.Authentication.AccessLevels" Collapsed="true">
+    <Position X="16" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Services\Authentication\AccessLevels.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CandyCrush.Core.Services.Game.UnityExitStatus" Collapsed="true">
+    <Position X="19.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAgAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Services\Game\UnityExitStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
