@@ -1,0 +1,131 @@
+﻿<!-- Login form code inspired by a YouTube video: "https://youtu.be/PoPUB1_q2kE" -->
+    
+<Page x:Class="CandyCrush.UI.Views.LoginView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CandyCrush.UI.Views"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d"
+      d:DesignHeight="600" d:DesignWidth="800">
+
+    <Grid>
+        <!--Background IMAGE-->
+        <Border CornerRadius="26" Panel.ZIndex="1">
+            <Border.Background>
+                <ImageBrush ImageSource="../StaticResources/LoginView/bg-image.png"/>
+            </Border.Background>
+        </Border>
+
+        <!-- Background Video -->
+        <Border x:Name="border" CornerRadius="26" Panel.ZIndex="2">
+            <Grid>
+                <Border Name="mask" Background="White" CornerRadius="{Binding ElementName=border, Path=CornerRadius}"/>
+
+                <Grid>
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=mask}"/>
+                    </Grid.OpacityMask>
+
+                    <MediaElement x:Name="backgroundVideo"
+                                  Source="StaticResources/LoginView/bg-video.mp4"
+                                  LoadedBehavior="Play"
+                                  UnloadedBehavior="Manual"
+                                  IsMuted="True"
+                                  Stretch="UniformToFill"
+                                  MediaEnded="BackgroundVideo_MediaEnded"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border CornerRadius="26" Panel.ZIndex="2" Opacity="0.8">
+
+            <!-- Page Content -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="1.5*" />
+                </Grid.ColumnDefinitions>
+                
+                <!-- Title -->
+                <!--<TextBlock Text="Candy Crush" HorizontalAlignment="Center" Panel.ZIndex="2" Grid.Column="1"
+                                       Style="{StaticResource RainbowTitle}"/>-->
+
+
+                <!-- Left Section - Sign Up -->
+                <Border CornerRadius="26 0 0 26" Grid.Column="0">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#3AA9AD" Offset="0" />
+                            <GradientStop Color="#3AADA1" Offset="1" />
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <Grid>
+                        <Canvas>
+                            <Polygon Points="0,20 230,140 0,270" Fill="#4EB1B6" />
+                            <Polygon Points="100,400 200,370 180,470" Fill="#4EB1B6" />
+                            <Ellipse Margin="250 450 0 0" Width="40" Height="40" Fill="#4EB1B6" />
+                            <Ellipse Margin="50 400 0 0" Width="20" Height="20" Fill="#4EB1B6" />
+                        </Canvas>
+
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Source="../StaticResources/LoginView/logo.png"
+                                   Margin="0, -175, 0, 0"
+                                   Width="220" Height="220">
+                            </Image>
+                            
+                            <TextBlock Text="Sign Up" Style="{StaticResource TitleText}" />
+                            <TextBlock Text="Create a new acount and start playing!" Opacity="0.8" Margin="20 30 20 30" Style="{StaticResource NormalText}" FontSize="22" />
+                            <Button Content="Sign Up" Style="{StaticResource button}" Click="Signup_Click"/>
+                        </StackPanel>
+
+                        <TextBlock Text="Press ctrl+m to mute/unmute." Opacity="0.5" Margin="10"
+                                   VerticalAlignment="Bottom"  Style="{StaticResource NormalText}" FontSize="16" />
+
+
+                    </Grid>
+                </Border>
+
+                <!-- Right Section - Sign in-->
+                <Border Grid.Column="1" CornerRadius="0 10 10 0" Panel.ZIndex="3">
+                    <!--BACKGROUND OVERLAY-->
+                    <StackPanel VerticalAlignment="Center">
+
+
+                        <TextBlock Text="Sign in" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
+
+                        <Border BorderBrush="#ACB0AF" BorderThickness="0" Margin="70 7" CornerRadius="5">
+                            <Grid Margin="7 9">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Icon:PackIconMaterial Kind="Account" Style="{StaticResource Icon}"/>
+                                <TextBlock x:Name="textUsername" MouseDown="TextUsername_MouseDown" Text="Username" Style="{StaticResource textHint}" />
+                                <TextBox Name="usernameBox" TextChanged="UsernameBox_TextChanged" Style="{StaticResource textBox}" />
+                            </Grid>
+                        </Border>
+
+                        <Border BorderBrush="#ACB0AF" BorderThickness="0" Margin="70 7" CornerRadius="5">
+                            <Grid Margin="7 9">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Icon:PackIconMaterial Kind="Lock" Style="{StaticResource Icon}"/>
+                                <TextBlock x:Name="textPassword" MouseDown="TextPassword_MouseDown" Text="Password" Style="{StaticResource textHint}" />
+                                <PasswordBox x:Name="passwordBox" PasswordChanged="PasswordBox_PasswordChanged" Style="{StaticResource textBox}" />
+                            </Grid>
+                        </Border>
+                        <Button Content="Sign In" Click="Signin_Click" Style="{StaticResource mainButton}" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Page>
