@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="CandyCrush.UI.Controls.FriendCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CandyCrush.UI.Controls"
+             xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             Name="friendCard">
+    <Border Padding="15 10">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter Property="Background" Value="#E5513DBC"></Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#FF5B2EAA"/>
+                    </Trigger>
+
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Profile Image -->
+            <Ellipse Width="50" Height="50" Margin="10 2 0 0" VerticalAlignment="Top">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="{Binding ElementName=friendCard, Path=ProfileImagePath}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+                
+            <!-- Texts -->
+            <StackPanel Grid.Column="1" Margin="12 0 0 0">
+                <TextBlock Text="{Binding ElementName=friendCard, Path=Username}" Foreground="#3AB19B"
+                           FontSize="13" FontWeight="SemiBold"/>
+                <TextBlock Text="Last seen on" Foreground="#a49fb9"
+                           FontSize="13" Margin="0 2"/>
+                <TextBlock Text="{Binding ElementName=friendCard, Path=LastSeen}" Foreground="#a49fb9"
+                           FontSize="10" />
+            </StackPanel>
+            
+            <!--Play Icon-->
+            <StackPanel Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Right" Margin="-45, 0, 0, 0">
+                <Button Click="UnfriendButton_Click" Background="Transparent" HorizontalAlignment="Right" Width="25" Height="25" ToolTip="Unfriend!"
+                    Style="{StaticResource HoverAnimation}">
+                    <Icon:PackIconMaterial Kind="CloseOutline" VerticalAlignment="Center"
+                                   Width="16" Height="16" Foreground="#3AB19B"/>
+                </Button>
+                <Button Click="CreateContestButton_Click" Background="Transparent" HorizontalAlignment="Right" Width="25" Height="25" ToolTip="Create a Contest!"
+                    Grid.Column="2" Style="{StaticResource HoverAnimation}">
+                    <Icon:PackIconMaterial Kind="GoogleController" VerticalAlignment="Center"
+                                   Width="16" Height="16" Foreground="#3AB19B"/>
+                </Button>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+</UserControl>
