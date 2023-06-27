@@ -14,7 +14,7 @@ public class LoginSystemConnectionHandeler : MonoBehaviour
 
     private void Awake() => Instance = this;
 
-    public string MatchResultOutputPath { get; private set; } = $"./matchResult-{GUID.Generate()}.json";
+    public string MatchResultOutputPath { get; private set; } = $"./matchResult.json";
 
     void Start()
     {
