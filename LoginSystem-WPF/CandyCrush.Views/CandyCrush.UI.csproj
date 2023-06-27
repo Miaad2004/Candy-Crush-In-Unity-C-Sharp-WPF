@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>StaticResources\icon.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="StaticResources\LoginView\bg-image.png" />
+    <None Remove="StaticResources\LoginView\bg-music.mp3" />
+    <None Remove="StaticResources\LoginView\bg-video.mp4" />
+    <None Remove="StaticResources\LoginView\logo.png" />
+    <None Remove="StaticResources\PanelView\bg-image.png" />
+    <None Remove="StaticResources\PanelView\bg-video.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="StaticResources\icon.ico" />
+    <Content Include="StaticResources\LoginView\bg-music.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StaticResources\LoginView\bg-video.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StaticResources\PanelView\bg-video.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CandyCrush.Core\CandyCrush.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="StaticResources\LoginView\bg-image.png" />
+    <Resource Include="StaticResources\LoginView\logo.png" />
+    <Resource Include="StaticResources\PanelView\bg-image.png" />
+  </ItemGroup>
+
+</Project>
