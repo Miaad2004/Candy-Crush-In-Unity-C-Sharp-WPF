@@ -1,0 +1,186 @@
+﻿<Page x:Class="CandyCrush.UI.Views.PanelView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CandyCrush.UI.Views"
+      xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="GameView"
+      Background="Transparent">
+
+    <Grid>
+        <!-- Background -->
+        <Border x:Name="border" CornerRadius="26" Panel.ZIndex="2">
+            <Grid>
+                <!--Image-->
+                <Border Name="mask"
+                        CornerRadius="{Binding ElementName=border, Path=CornerRadius}">
+                    <Border.Background>
+                        <ImageBrush ImageSource="../StaticResources/PanelView/bg-image.png"/>
+                    </Border.Background>
+                </Border>
+                
+                <!--Video-->
+                <Grid>
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{Binding ElementName=mask}"/>
+                    </Grid.OpacityMask>
+
+                    <MediaElement x:Name="backgroundVideo"
+                                  Source="StaticResources/PanelView/bg-video.mp4"
+                                  LoadedBehavior="Play"
+                                  UnloadedBehavior="Manual"
+                                  IsMuted="True"
+                                  Stretch="Fill"
+                                  MediaEnded="BackgroundVideo_MediaEnded"/>
+                </Grid>
+                
+                <!--Overlay-->
+                <Border Opacity="0.7" CornerRadius="26">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="1, 1" EndPoint="0, 0">
+                            <GradientStop Color="#FF050731" Offset="0"/>
+                            <GradientStop Color="#FF141848" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+            </Grid>
+        </Border>
+
+        <Border CornerRadius="26" Panel.ZIndex="2" Opacity="0.8">
+            <!-- Load Animation -->
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                             From="0.2" To="0.8" Duration="0:0:1.7" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+            
+            <!-- Main Section-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.55*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Left section-->
+                <Grid Grid.Column="0" Opacity="0.8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="125"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header-->
+                    <Grid Grid.Row="0">
+                        <StackPanel Orientation="Horizontal">
+                            <!--Profile Image-->
+                            <Border Width="100" Height="100" Margin="10"
+                                    Padding="4" CornerRadius="100"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center">
+
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" x:Name="BorderBrush">
+                                        <GradientStop Color="#462AD8" Offset="0"/>
+                                        <GradientStop Color="#DA34AE" Offset="0.5"/>
+                                        <GradientStop Color="#8A16C1" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+
+                                <Ellipse>
+                                    <Ellipse.Fill>
+                                        <ImageBrush x:Name="brushProfileImage"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                            </Border>
+                        
+                            <!-- Welcome Msg-->
+                            <TextBlock Text="Welcome Back, Dear "
+                                       Style="{StaticResource HeaderText}"/>
+                            <TextBlock x:Name="txtUsername"
+                                       Text="Username"
+                                       Style="{StaticResource HeaderTextUsername}"/>
+                        </StackPanel>
+                    </Grid>
+                    
+                    <!-- Middle Section-->
+                    <Grid Grid.Row="1">
+                        <Button x:Name="SinglePlayerButton"
+                                Click="SinglePlayerButton_Click"
+                                Content="Single Player"
+                                ToolTip="Start Crashing Candies!"
+                                Style="{StaticResource PlayButton}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                        </Button>
+                    </Grid>
+
+                    <!-- Footer -->
+                    <Grid Grid.Row="2" Margin="15">
+                        <Button x:Name="btnLogout"
+                                Click="LogoutButton_Click"
+                                ToolTip="Logout"
+                                Style="{StaticResource LogoutButton}"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left">
+                            <Icon:Material Kind="LocationExit"/>
+                        </Button>
+                    </Grid>
+
+                </Grid>
+
+                <!-- Right section-->
+                <Border Grid.Column="1" Opacity="0.7" CornerRadius="25, 0, 25, 0" Margin="15, 30, 15, 15">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="1, 1" EndPoint="0, 0">
+                            <GradientStop Color="#FF050731" Offset="0"/>
+                            <GradientStop Color="#FF141848" Offset="0.8"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                
+                    <Grid Grid.Column="1" Margin="10">
+                        <StackPanel>
+                            <Grid>
+                                <Icon:PackIconMaterial Kind="AccountGroupOutline" Style="{StaticResource HeaderIcon}"/>
+                                <TextBlock Text="Friends" Style="{StaticResource HeaderText}"
+                                           VerticalAlignment="Top" Margin="25, 0, 0, 0"/>
+                                <Button x:Name="AddFriendButton" Background="Transparent"  HorizontalAlignment="Right" Click="AddFriendButton_Click"
+                                        Style="{StaticResource HoverAnimation}" ToolTip="Add a New Friend!">
+                                    <Icon:PackIconMaterial Kind="AccountMultiplePlusOutline" VerticalAlignment="Center" Margin="22 0 0 0" 
+                                   Width="25" Height="25" Foreground="#3AB19B"/>
+                                </Button>
+
+                            </Grid>
+                            <Separator Opacity="0.4"/>
+                            <Border CornerRadius="20" Background="#ebecf0" Padding="0" Margin="20 15">
+                                <Grid Margin="10 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RadioButton x:Name="FriendsButton" Grid.Column="0" Content="Friends" Style="{StaticResource TapRadioButton}" GroupName="SelectionGroup" Checked="FriendsButton_Checked"/>
+                                    <RadioButton x:Name="MatchesButton" Grid.Column="1" Content="Matches" Style="{StaticResource TapRadioButton}" GroupName="SelectionGroup" Checked="MatchesButton_Checked"/>
+                                </Grid>
+                            </Border>
+
+
+                            <Frame x:Name="SubFrame" Height="400"
+                                   NavigationUIVisibility="Hidden" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
+
+        </Border>
+
+
+
+    </Grid>
+</Page>
