@@ -1,0 +1,68 @@
+﻿<Window x:Class="CandyCrush.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CandyCrush.UI"
+        mc:Ignorable="d"
+        Title="Candy Crush" Width="800" Height="600" 
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Style="{StaticResource BorderTheme}"
+        AllowsTransparency="True"
+        ResizeMode="NoResize">
+
+    <!-- For resize -->
+    <WindowChrome.WindowChrome>
+        <WindowChrome     
+            CaptionHeight="1"  
+            CornerRadius ="0"
+            ResizeBorderThickness="4"         
+            GlassFrameThickness="0">
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
+
+    <Border CornerRadius="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- FRAME -->
+            <Frame Grid.Row="1" x:Name="MainFrame"
+                   NavigationUIVisibility="Hidden" Margin="0, -30, 0, 0" Panel.ZIndex="0"/>
+
+            <!-- TOP BAR -->
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Minimize"
+                        Panel.ZIndex="2"
+                        Grid.Column="1"
+                        Style="{StaticResource MinimizeButtonStyle}"
+                        Click="Minimize_Click" />
+
+                <Button x:Name="Resize"
+                        Panel.ZIndex="2"
+                        Grid.Column="2"
+                        Style="{StaticResource MaximizeButtonStyle}"
+                        Click="Resize_Click" />
+
+                <Button x:Name="Close"
+                        Panel.ZIndex="2"
+                        Grid.Column="3"
+                        Style="{StaticResource CloseButtonStyle}"
+                        Click="Close_Click" />
+            </Grid>
+
+
+        </Grid>
+    </Border>
+</Window>
