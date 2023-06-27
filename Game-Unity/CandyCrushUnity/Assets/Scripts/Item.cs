@@ -8,5 +8,5 @@ using UnityEngine;
 public sealed class Item : ScriptableObject
 {
     public int score; 
-    public Sprite sprite;
+    public Sprite sprite;      // tile's image
 }

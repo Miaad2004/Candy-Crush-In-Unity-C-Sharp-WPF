@@ -42,12 +42,12 @@ public sealed class Tile : MonoBehaviour
     private void Start()
     {
         button.onClick.AddListener(call: () => Board.Instance.Select(tile: this));
-        StartFloatingAnimation();
     }
-
 
     public List<Tile> GetConnectedTiles(List<Tile> exclude = null, int? row = null, int? col = null)
     {
+        // DFS (death-first search) algorrithm
+
         var result = new List<Tile>() { this };
 
         exclude ??= new List<Tile>();
@@ -61,29 +61,13 @@ public sealed class Tile : MonoBehaviour
             if (neighbour == null || exclude.Contains(neighbour) || neighbour.Item != Item)
                 continue;
 
-            // Check if the neighbour is in the same row or column and not diagonal
-            if ((row == neighbour.x || col == neighbour.y) && (row != neighbour.x || col != neighbour.y))
+            // Check if the neighbour is in the same row or column 
+            if (row == neighbour.x || col == neighbour.y)              // Bug: result contatins L shaped tiles too
             {
-                result.AddRange(neighbour.GetConnectedTiles(exclude, neighbour.x, neighbour.y));
+                result.AddRange(neighbour.GetConnectedTiles(exclude, x, y));
             }
         }
 
         return result;
-    }
-
-
-
-    public void StartFloatingAnimation()
-    {
-        Vector3 initialPosition = icon.transform.localPosition;
-        Vector3 targetPosition = initialPosition + new Vector3(0f, 0.2f, 0f); // Offset the Y position for the floating effect
-
-        icon.transform.DOKill(); // Cancel any ongoing animations on the icon
-
-        // Start the floating animation
-        icon.transform.localPosition = initialPosition; // Reset the position to the initial position
-        icon.transform.DOLocalMove(targetPosition, 1f)
-            .SetLoops(-1, LoopType.Yoyo) // Makes the animation loop back and forth
-            .SetEase(Ease.InOutQuad); // Sets the easing function for smooth movement
     }
 }

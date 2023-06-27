@@ -7,6 +7,8 @@ using UnityEngine;
 using System.Threading.Tasks;
 using DG.Tweening;
 
+// Code inspired by a YouTube video: "https://youtu.be/9i_sktmLg30"
+
 public sealed class Board : MonoBehaviour
 {
     public static Board Instance { get; private set; }
@@ -30,8 +32,6 @@ public sealed class Board : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Console.WriteLine(rows.Length);
-        Console.WriteLine(rows.Max(selector: row => row.tiles.Length));
         Tiles = new Tile[rows.Max(selector: row => row.tiles.Length), rows.Length];
 
         for (var y = 0; y < Height; y++)
@@ -101,9 +101,9 @@ public sealed class Board : MonoBehaviour
         var sequence = DOTween.Sequence();
 
         sequence.Join(icon1Transform.DOMove(icon2Transform.position, TweenDuration)
-            .SetEase(Ease.OutQuad)) // Set easing for swap animation
+            .SetEase(Ease.OutQuad)) 
             .Join(icon2Transform.DOMove(icon1Transform.position, TweenDuration)
-            .SetEase(Ease.OutQuad)); // Set easing for swap animation
+            .SetEase(Ease.OutQuad)); 
 
         await sequence.Play()
                       .AsyncWaitForCompletion();
