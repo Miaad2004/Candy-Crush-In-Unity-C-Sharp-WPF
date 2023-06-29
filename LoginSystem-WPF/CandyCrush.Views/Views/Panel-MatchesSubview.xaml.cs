@@ -119,6 +119,7 @@ namespace CandyCrush.UI.Views
         {
             skipCount = 0;
             Matches.Clear();
+            MatchesScrollViewer.ScrollToVerticalOffset(0);
             LoadInitialPlayers();
         }
 

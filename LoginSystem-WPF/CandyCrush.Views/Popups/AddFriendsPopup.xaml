@@ -52,7 +52,7 @@
         
         <!-- Main Section -->
         <Grid Grid.Row="2" Margin="0, 0, 0, 25">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
+                <ScrollViewer x:Name="UsersScrollViewer" VerticalScrollBarVisibility="Auto" Height="Auto" ScrollChanged="ScrollViewer_ScrollChanged">
                     <ItemsControl ItemsSource="{Binding Players, Mode=TwoWay}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>

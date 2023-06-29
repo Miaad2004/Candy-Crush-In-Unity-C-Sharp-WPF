@@ -36,7 +36,7 @@
         </Grid>
 
         <!-- Matches list-->
-        <ScrollViewer  Grid.Row="1" VerticalScrollBarVisibility="Auto" Height="Auto"
+        <ScrollViewer x:Name="MatchesScrollViewer" Grid.Row="1" VerticalScrollBarVisibility="Auto" Height="Auto"
                        ScrollChanged="ScrollViewer_ScrollChanged">
             <ItemsControl ItemsSource="{Binding Matches, Mode=TwoWay}">
                 <ItemsControl.ItemTemplate>

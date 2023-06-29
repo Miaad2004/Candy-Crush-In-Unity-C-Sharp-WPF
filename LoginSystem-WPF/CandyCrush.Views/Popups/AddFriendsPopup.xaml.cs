@@ -58,7 +58,7 @@ namespace CandyCrush.UI.Popups
             {
                 searchQuery = value;
                 OnPropertyChanged(nameof(SearchQuery));
-                PerformSearch();
+                PerformSearchAsync();
             }
         }
 
@@ -77,14 +77,15 @@ namespace CandyCrush.UI.Popups
             LoadInitialPlayers();
         }
 
-        private void PerformSearch()
+        public async void PerformSearchAsync() // Add Task return type
         {
             skipCount = 0;
             Players.Clear();
-            LoadInitialPlayers();
+            UsersScrollViewer.ScrollToVerticalOffset(0);
+            await LoadInitialPlayers(); 
         }
 
-        private async void LoadInitialPlayers()
+        private async Task LoadInitialPlayers() 
         {
             var initialPlayers = await playerService.GetPlayers(skipCount, BatchSize, SearchQuery);
             foreach (var player in initialPlayers)

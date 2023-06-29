@@ -49,7 +49,7 @@ namespace CandyCrush.UI
         {
             if (isFirstLoadFlag)
             {
-                //PlayBackgroundMusic();
+                PlayBackgroundMusic();
                 isFirstLoadFlag = false;
             }
 

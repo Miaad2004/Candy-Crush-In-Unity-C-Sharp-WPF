@@ -83,6 +83,7 @@ namespace CandyCrush.UI.Views
         {
             skipCount = 0;
             Players.Clear();
+            FriendsScrollViewer.ScrollToVerticalOffset(0);
             LoadInitialPlayers();
         }
 
